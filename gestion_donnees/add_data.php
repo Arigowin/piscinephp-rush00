@@ -38,7 +38,44 @@ function add_data(string $name, int $price, array $category, string $description
   }
   return (FALSE);
 }
-//$cat[] = "humain";
-//$cat[] = "debile";
-//add_data("toto", 1, $cat, "Un petit toto debile", "");
+
+$name = htmlentities($_POST['name']);
+$price = htmlentities($_POST['price']);
+$category = htmlentities($_POST['category']);
+$description = htmlentities($_POST['description']);
+$img = htmlentities($_POST['img']);
+
+if ($_POST['submit'] === "Ajouter")
+{
+  if ($price === "" && $name === "")
+  {
+    echo "Les champs Nom et Prix sont obligatoire ! <br />";
+  }
+  else
+  {
+    $category = explode(";", $category);
+    if (add_data($name, $price, $category, $description, $img) === FALSE)
+      echo "Produit : existe deja ! <br />";
+    else
+      echo "Produit : $name ajoute !<br />";
+  }
+}
 ?>
+<body>
+  <head>
+  <title>Ajout d'articles</title>
+  </head>
+  <body>
+    <form action="add_data.php" method="post">
+      Nom : <input type="text" name="name" value="" /><br />
+      Prix : <input type="text" name="price" value="" /><br />
+      Categrorie : <input type="text" name="category" value="" /> (categorie1;categorie2;...)
+      <br />
+      Description : <br />
+      <textarea name="description" value="" rows="4" cols="50"></textarea>
+      <br />
+      Image : <input type="file" name="img" value="" /><br />
+      <input type="submit" name="submit" value="Ajouter" />
+    </form>
+  </body>
+</body>

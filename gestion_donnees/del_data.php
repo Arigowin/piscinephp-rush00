@@ -31,5 +31,33 @@ function del_data(string $name)
   }
   return (FALSE);
 }
-//echo del_data("toto");
+
+$name = htmlentities($_POST['name']);
+
+if ($_POST['submit'] === "Supprimer")
+{
+  if ($name === "")
+  {
+    echo "Le champ Nom est obligatoire !<br />";
+  }
+  else
+  {
+    if (del_data($name) === FALSE)
+      echo "Produit : non trouve !<br />";
+    else
+      echo "Produit : $name suprime !<br />";
+  }
+}
 ?>
+<body>
+  <head>
+  <title>Modification d'articles</title>
+  </head>
+  <body>
+    <form action="del_data.php" method="post">
+      Nom : <input type="text" name="name" value="" /><br />
+      <br />
+      <input type="submit" name="submit" value="Supprimer" />
+    </form>
+  </body>
+</body>

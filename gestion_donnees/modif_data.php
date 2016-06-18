@@ -39,5 +39,52 @@ function modif_data(string $name, string $newName = "", int $price = -1, array $
   }
   return (FALSE);
 }
-//modif_data("toto", "toto2", -1, NULL, "", "");
+
+$name = htmlentities($_POST['name']);
+$newName = htmlentities($_POST['newName']);
+$price = (int)htmlentities($_POST['price']);
+$category = htmlentities($_POST['category']);
+$description = htmlentities($_POST['description']);
+$img = htmlentities($_POST['img']);
+
+if ($_POST['submit'] === "Modifier")
+{
+  if ($name === "")
+  {
+    echo "Le champ Nom est obligatoire !<br />";
+  }
+  else
+  {
+    if ($prix === "")
+      $prix = -1;
+    else
+      $prix = (int)$prix;
+    if ($category === "")
+      $category = NULL;
+    $category = explode(";", $category);
+    if (modif_data($name, $newName, $price, $category, $description, $img) === FALSE)
+      echo "Produit : non trouve ! <br />";
+    else
+      echo "Produit : $name modifier !<br />";
+  }
+}
 ?>
+<body>
+  <head>
+  <title>Modification d'articles</title>
+  </head>
+  <body>
+    <form action="modif_data.php" method="post">
+      Nom : <input type="text" name="name" value="" /><br />
+      Nouveau nom : <input type="text" name="newName" value="" /><br />
+      Prix : <input type="text" name="price" value="" /><br />
+      Categrorie : <input type="text" name="category" value="" /> (categorie1;categorie2;...)
+      <br />
+      Description : <br />
+      <textarea name="description" value="" rows="4" cols="50"></textarea>
+      <br />
+      Image : <input type="file" name="img" value="" /><br />
+      <input type="submit" name="submit" value="Modifier" />
+    </form>
+  </body>
+</body>
