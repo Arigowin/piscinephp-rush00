@@ -67,14 +67,17 @@ if ($_POST['submit'] === "Ajouter")
   </head>
   <body>
     <form action="add_data.php" method="post">
-      Nom : <input type="text" name="name" value="" /><br />
-      Prix : <input type="text" name="price" value="" /><br />
+      Nom : <input type="text" name="name" value="" />
+      <br />
+      Prix : <input type="text" name="price" value="" />
+      <br />
       Categrorie : <input type="text" name="category" value="" /> (categorie1;categorie2;...)
       <br />
       Description : <br />
       <textarea name="description" value="" rows="4" cols="50"></textarea>
       <br />
-      Image : <input type="file" name="img" value="" /><br />
+      Image : <input type="text" name="img" value="" /> (img/xxx.png)
+      <br />
       <input type="submit" name="submit" value="Ajouter" />
     </form>
   </body>
