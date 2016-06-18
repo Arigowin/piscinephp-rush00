@@ -61,32 +61,3 @@ if ($_POST['submit'] === "Supprimer")
     </form>
   </body>
 </body>
-
-
-<form action="<?php echo($_SERVER['PHP_SELF']); ?>" method="post" id="chgdept">
-<fieldset style="border: 3px double #333399">
-<legend>Sélectionnez une région</legend>
-<select name="region" id="region" onchange="document.forms['chgdept'].submit();">
-  <option value="-1">- - - Choisissez une région - - -</option>
-    <?php
-    for($i = 0; $i < $nb_regions; $i++)
-    {
-?>
-  <option value="<?php echo($code_region[$i]); ?>"<?php echo((isset($idr) && $idr == $code_region[$i])?" selected=\"selected\"":null); ?>><?php echo($region[$i]); ?></option>
-<?php
-    }
-    ?>
-</select>
-<select name="departement" id="departement">
-            <?php  
-            for($d = 0; $d<$nd; $d++)
-            {
-                ?>
-  <option value="<?php echo($code_dept[$d]); ?>"<?php echo((isset($dept_selectionne) && $dept_selectionne == $code_dept[$d])?" selected=\"selected\"":null); ?>><?php echo($nom_dept[$d]." (". $code_dept[$d] .")"); ?></option>
-                <?php
-            }
-?>
-</select>
-<br /><input type="submit" name="ok" id="ok" value="Envoyer" />
-</fieldset>
-</form>
