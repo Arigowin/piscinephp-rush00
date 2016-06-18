@@ -1,8 +1,16 @@
 <?php
+	include ("../error.php");
 	if (!$_POST['login'] || !$_POST['passwd'] || $_POST['submit'] !== "OK")
 	{
-		echo "ERROR\n";
+		error_msg(2);
+		header('Location: ../index.php');
 		return ;
+	}
+	if (!preg_match("/[a-zA-Z0-9_\-]+/", $_POST['login']))
+	{
+		 error_msg(5);
+		 header('Location: ../index.php');
+		 return ;
 	}
 	if ($_POST['login'] && $_POST['passwd'] && $_POST['submit'] === "OK")
 	{
@@ -17,7 +25,8 @@
 				{
 					if ($key === 'login' && $value === $_POST['login'])
 					{
-						echo "ERROR\n";
+						error_msg(3);
+						header('Location: ../index.php');
 						return ;
 					}
 				}
@@ -31,10 +40,12 @@
 		$file[] = [
 			'login'		=>	$_POST['login'],
 			'passwd'	=>	$passwd,
+			'admin'		=>	0,
 		];
 		if (file_put_contents($private, serialize($file)) === FALSE)
 		{
-			echo "ERROR\n";
+			error_msg(4);
+			header('Location: ../index.php');
 			return ;
 		}
 		session_start();

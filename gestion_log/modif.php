@@ -1,4 +1,5 @@
 <?php
+	include('../error.php');
 	$private = '../htdocs/private/passwd';
 	if ($_POST['login'] && $_POST['newpw'] && $_POST['oldpw'] && $_POST['submit'] === "OK")
 	{
@@ -16,7 +17,7 @@
 							$file[$i]['passwd'] = hash('whirlpool', $_POST['newpw']);
 							if (file_put_contents($private, serialize($file)) !== FALSE)
 							{
-								echo "OK\n";
+								header('Location: ../index.php');
 								return ;
 							}
 						}
@@ -25,6 +26,7 @@
 			}
 		}
 	}
-	echo "ERROR\n";
+	error_msg(1);
+	header('Location: ../index.php');
 	return ;
 ?>

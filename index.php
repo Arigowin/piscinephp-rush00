@@ -21,7 +21,11 @@
     <?php if (isset($_SESSION['login']) && $_SESSION['login'] !== "") {?>
     <form action="gestion_log/logout.php">
         <input type="submit" value="Se deconnecter"></input>
-    </form><?php }
+    </form>
+    <form action="gestion_log/modif.html">
+      <input type="submit" value="Modifier mon mot de passe"></input>
+    </form>
+    <?php }
     else {?>
       <form action="gestion_log/login.html">
           <input type="submit" value="Se connecter"></input>
