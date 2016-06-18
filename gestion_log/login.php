@@ -1,5 +1,6 @@
 <?php
   include("./auth.php");
+  include('../error.php');
   session_start();
   $login = $_POST['login'];
   $passwd = $_POST['passwd'];
@@ -11,7 +12,8 @@
   else
   {
     $_SESSION['login'] = "";
-    echo "ERROR\n";
+    error_msg(1);
+    header ('Location: ../index.php');
   }
 
 ?>
