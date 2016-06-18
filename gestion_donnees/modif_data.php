@@ -1,4 +1,6 @@
 <?php
+$idr = isset($_POST['region'])?$_POST['region']:null;
+
 function modif_data(string $name, string $newName = "", int $price = -1, array $category = NULL, string $description = "", string $img = "")
 {
   $file = "../htdocs/private/data";
@@ -12,6 +14,13 @@ function modif_data(string $name, string $newName = "", int $price = -1, array $
       return (FALSE);
 
     $OK = FALSE;
+
+    foreach ($fileContent as $elem)
+    {
+      if ($elem['name'] === $newName)
+        return (FALSE);
+    }
+
     for ($i = 0 ; $fileContent[$i] ; $i++)
     {
       if ($fileContent[$i]['name'] === $name)
@@ -68,45 +77,47 @@ if ($_POST['submit'] === "Modifier")
       echo "Produit : $name modifier !<br />";
   }
 }
-echo "<body>\n" .
-  "  <head>\n" .
-  "  <title>Modification d'articles</title>\n" .
-  "  </head>\n" .
-  "  <body>\n" .
-  "    <form action=\"modif_data.php\" method=\"post\" id='modif'>\n" .
-//   "      Nom : <select name=\"nameNb\" onchange=\"document.forms['modif'].submit();\">\n";
-// 
-// $file = "../htdocs/private/data";
-// if (!file_exists($file))
-//   return (FALSE);
-// $fileContent = unserialize(file_get_contents($file));
-// if ($fileContent === FALSE)
-//   return ;
-// 
-// $first = TRUE;
-// for ($i = 0 ; $fileContent[$i] ; $i++)
-// {
-//   if ($file == TRUE)
-//     $selected = ' selected="selected"';
-//   echo "<option value=\" $i \" $selected>" . $fileContent[$i]['name'] . "</option>\n";
-// 
-//   $file = FALSE;
-//   $selected = "";
-// }
-echo "      </select>\n" .
-  "      <br />\n" .
-  "      Nouveau nom : <input type=\"text\" name=\"newName\" value=\"" . $_POST['nameNb'] . "\" />\n" .
-  "      <br />\n" .
-  "      Prix : <input type=\"text\" name=\"price\" value=\"\" />\n" .
-  "      <br />\n" .
-  "      Categrorie : <input type=\"text\" name=\"category\" value=\"\" /> (categorie1;categorie2;...)\n" .
-  "      <br />\n" .
-  "      Description : <br />\n" .
-  "      <textarea name=\"description\" value=\"\" rows=\"4\" cols=\"50\"></textarea>\n" .
-  "      <br />\n" .
-  "      Image : <input type=\"text\" name=\"img\" value=\"\" /> (img/xxx.png)\n" .
-  "      <br />\n" .
-  "      <input type=\"submit\" name=\"submit\" value=\"Modifier\" />\n" .
-  "    </form>\n" .
-  "  </body>";
 ?>
+<body>
+<head>
+  <title>Modification d'articles</title>
+</head>
+<body>
+  <form action="modif_data.php" method="post" id=modif>
+    Nom : <input type="text" name="name" value="" /><br />
+<!-- //    "      Nom : <select name=\"region\" id=\"region\" onchange=\"document.forms['modif'].submit();\">\n";
+//
+//  $file = "../htdocs/private/data";
+//  if (!file_exists($file))
+//    echo "File not found\n";
+//  $fileContent = unserialize(file_get_contents($file));
+//  if ($fileContent === FALSE)
+//    echo "Could not open file\n";
+//
+//  $first = TRUE;
+//  for ($i = 0 ; $fileContent[$i] ; $i++)
+//  {
+//    if ($file == TRUE)
+//      $selected = 'selected="selected"';
+//    echo "<option value=\"$i\" ";
+//    echo (isset($idr) && $idr == $i)?" selected=\"selected\"":null;
+//    echo ">" . $fileContent[$i]['name'] . "</option>\n";
+//
+//    $file = FALSE;
+//    $selected = "";
+//  }
+//  echo "      </select>\n" . -->
+    Nouveau nom : <input type="text" name="newName" value="" . $_POST['nameNb'] . "" />
+    <br />
+    Prix : <input type="text" name="price" value="" />
+    <br />
+    Categrorie : <input type="text" name="category" value="" /> (categorie1;categorie2;...)
+    <br />
+    Description : <br />
+    <textarea name="description" value="" rows="4" cols="50"></textarea>
+    <br />
+    Image : <input type="text" name="img" value="" /> (img/xxx.png)
+    <br />
+    <input type="submit" name="submit" value="Modifier" />
+  </form>
+</body>
