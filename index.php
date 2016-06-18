@@ -22,6 +22,9 @@
     <form action="gestion_log/logout.php">
         <input type="submit" value="Se deconnecter"></input>
     </form>
+    <form action="gestion_log/del_account.php">
+        <input type="submit" value="Supprimer mon compte"></input>
+    </form>
     <form action="gestion_log/modif.html">
       <input type="submit" value="Modifier mon mot de passe"></input>
     </form>
