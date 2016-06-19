@@ -61,6 +61,8 @@ h2  {
 
 .right_text {
   text-align: right;
+  margin-right: 10;
+  font-size: 1em;
 }
 .boxleft  {
 	padding: 20px;
@@ -158,13 +160,13 @@ div.transbox {
   filter: alpha(opacity=60);
   width: 54%;
   height: 81%;
+
   margin-left: 18%;
   margin-top: -2%;
   position: relative;
 }
 
-div.transbox p {
-  margin: 5%;
-  font-weight: bold;
-  color: #000000;
+p {
+  font-size: 1em;
+  margin-left: 10;
 }
