@@ -4,6 +4,7 @@ session_start();
 <html>
   <head>
     <title>Listes des articles</title>
+    <link rel="stylesheet" type="text/css" href="articles.css" />
   </head>
 <body>
   <h1>Liste des articles</h1>
