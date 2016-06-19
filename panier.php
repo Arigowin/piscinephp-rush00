@@ -52,9 +52,9 @@ if (file_exists($file))
     {
       $totale = ($value['qte'] * $value['price']);
       echo "<tr>\n
-        <td>nom :" . $key . "</td>\n
-        <td>pu : " . $value['price'] . " $</td>\n
-        <td>qte : " . $value['qte'] . " $</td>\n
+        <td>" . $key . "</td>\n
+        <td>" . $value['price'] . " $</td>\n
+        <td>" . $value['qte'] . " $</td>\n
         <td>$totale $</td>\n
         </tr>\n";
         $totales += $totale;
