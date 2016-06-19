@@ -22,7 +22,6 @@
     ?>
     <div>
       <div class="transbox">
-        <p>This is some text that is placed in the transparent box.</p>
 
         <div class="boxright">
     <?php if (isset($_SESSION['login']) && $_SESSION['login'] !== "") {?>
@@ -48,6 +47,7 @@
 
       <?php } ?>
         </div>
+
       <div class="boxleft">
       <div class="text">
         <a href="articles.php" class="link">Tout voir</a> </br>
@@ -65,6 +65,12 @@
       <div class="box_cart">
         <h2>Mon panier</h2>
       </div>
+      <div classe="images">
+        <img class="raquette" src="http://protennistips.net/wp-content/uploads/2015/05/Babolat-Pure-Drive-Review.jpg"/>
+        </br>
+        <p>La meilleure raquette? La pure Drive bien sûr! <a href="articles.php">Allez voir!</a></p>
+      </div>
+      <div class="right_text"><p>Notre site est un peu pourri? Aller voir nos concurerents en cliquant <a href="https://fr.wikipedia.org/wiki/Caca">ICI</a></p></div>
       </div>
 
 

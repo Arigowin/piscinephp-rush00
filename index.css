@@ -22,12 +22,17 @@ h2  {
   height: 202px;
   display: block;
   margin-left: 104%;
-  margin-top: -17%;
+  margin-top: 3%;
   box-shadow: 10px 12px 6px black;
   filter: alpha(opacity=60);
   background-color: rgba(255, 255, 255, 0.6);
   position: absolute;
 }
+.images {
+  position: relative;
+  width: 50%;
+}
+
 
 .box_cart  {
 	padding: 20px;
@@ -40,7 +45,7 @@ h2  {
   height: 202px;
   display: block;
   margin-left: 104%;
-  margin-top: -7%;
+  margin-top: 10%;
   box-shadow: 10px 12px 6px black;
   filter: alpha(opacity=60);
   background-color: rgba(255, 255, 255, 0.6);
@@ -48,6 +53,15 @@ h2  {
 
 }
 
+.raquette {
+  height: 50%;
+  width: 50%;
+  margin-top: -20%;
+}
+
+.right_text {
+  text-align: right;
+}
 .boxleft  {
 	padding: 20px;
 	background: #ffffff;
@@ -55,16 +69,17 @@ h2  {
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-  width: 146px;
-  height: 162px;
+  width: 13%;
+  height: 30%;
   display: block;
-  margin-left: -31%;
+  margin-left: -21%;
   margin-top: 0%;
   box-shadow: 10px 12px 6px black;
   opacity: 0.6;
   filter: alpha(opacity=60);
   background-color: #ffffff;
   text-align: center;
+  min-width: 100px;
 }
 
 .link {

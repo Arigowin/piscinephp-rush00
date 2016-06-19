@@ -102,6 +102,8 @@ if (file_exists($file))
 ?>
   </table>
   <input name="submit" type="submit" value="Valider et acceder au panier" />
+
   </form>
+  <a href="index.php"><button>Accueil</button></a>
 </body>
 </html>
