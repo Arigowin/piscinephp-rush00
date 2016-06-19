@@ -55,28 +55,31 @@ $price = (int)htmlentities($_POST['price']);
 $category = htmlentities($_POST['category']);
 $description = htmlentities($_POST['description']);
 $img = htmlentities($_POST['img']);
+$admin = $_SESSION['admin'];
 
-if ($_POST['submit'] === "Modifier")
+if ($admin == TRUE)
 {
-  if ($name === "")
+  if ($_POST['submit'] === "Modifier")
   {
-    echo "Le champ Nom est obligatoire !<br />";
-  }
-  else
-  {
-    if ($prix === "")
-      $prix = -1;
+    if ($name === "")
+    {
+      echo "Le champ Nom est obligatoire !<br />";
+    }
     else
-      $prix = (int)$prix;
-    if ($category === "")
-      $category = NULL;
-    $category = explode(";", $category);
-    if (modif_data($name, $newName, $price, $category, $description, $img) === FALSE)
-      echo "Produit : non trouve ! <br />";
-    else
-      echo "Produit : $name modifier !<br />";
+    {
+      if ($prix === "")
+        $prix = -1;
+      else
+        $prix = (int)$prix;
+      if ($category === "")
+        $category = NULL;
+      $category = explode(";", $category);
+      if (modif_data($name, $newName, $price, $category, $description, $img) === FALSE)
+        echo "Produit : non trouve ! <br />";
+      else
+        echo "Produit : $name modifier !<br />";
+    }
   }
-}
 ?>
 <body>
 <head>
@@ -120,4 +123,19 @@ if ($_POST['submit'] === "Modifier")
     <br />
     <input type="submit" name="submit" value="Modifier" />
   </form>
+  <form method="link" action="../gestion_admin.php">
+    <input type="submit" value="Retour a la page de gestion des articles"></input>
+  </form>
+</body>
+<?php
+}
+else
+?>
+<body>
+  <head>
+  <title>Ajout d'articles</title>
+  </head>
+  <body>
+    <p>Cette page est privee !</p>
+  </body>
 </body>

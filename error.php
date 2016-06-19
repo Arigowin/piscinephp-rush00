@@ -12,6 +12,8 @@
       $_SESSION['error'] = "Unable to create file\n";
     else if ($error == 5)
       $_SESSION['error'] = "Unauthorized character(s)\n";
+    else if ($error == 6)
+      $_SESSION['error'] = "Could not open file\n";
     else
       $_SESSION['error'] = "";
   }

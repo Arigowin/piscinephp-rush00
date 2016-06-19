@@ -39,27 +39,30 @@ function add_data(string $name, int $price, array $category, string $description
   return (FALSE);
 }
 
+$admin = $_SESSION['admin'];
 $name = htmlentities($_POST['name']);
 $price = htmlentities($_POST['price']);
 $category = htmlentities($_POST['category']);
 $description = htmlentities($_POST['description']);
 $img = htmlentities($_POST['img']);
 
-if ($_POST['submit'] === "Ajouter")
+if ($admin == TRUE)
 {
-  if ($price === "" && $name === "")
+  if ($_POST['submit'] === "Ajouter")
   {
-    echo "Les champs Nom et Prix sont obligatoire ! <br />";
-  }
-  else
-  {
-    $category = explode(";", $category);
-    if (add_data($name, $price, $category, $description, $img) === FALSE)
-      echo "Produit : existe deja ! <br />";
+    if ($price === "" && $name === "")
+    {
+      echo "Les champs Nom et Prix sont obligatoire ! <br />";
+    }
     else
-      echo "Produit : $name ajoute !<br />";
+    {
+      $category = explode(";", $category);
+      if (add_data($name, $price, $category, $description, $img) === FALSE)
+        echo "Produit : existe deja ! <br />";
+      else
+        echo "Produit : $name ajoute !<br />";
+    }
   }
-}
 ?>
 <body>
   <head>
@@ -80,5 +83,20 @@ if ($_POST['submit'] === "Ajouter")
       <br />
       <input type="submit" name="submit" value="Ajouter" />
     </form>
+    <form method="link" action="../gestion_admin.php">
+      <input type="submit" value="Retour a la page de gestion des articles"></input>
+    </form>
+  </body>
+</body>
+<?php
+}
+else
+?>
+<body>
+  <head>
+  <title>Ajout d'articles</title>
+  </head>
+  <body>
+    <p>Cette page est privee !</p>
   </body>
 </body>
