@@ -46,6 +46,7 @@ $category = htmlentities($_POST['category']);
 $description = htmlentities($_POST['description']);
 $img = htmlentities($_POST['img']);
 
+$admin = TRUE;
 if ($admin == TRUE)
 {
   if ($_POST['submit'] === "Ajouter")
@@ -91,6 +92,7 @@ if ($admin == TRUE)
 <?php
 }
 else
+{
 ?>
 <body>
   <head>
@@ -100,3 +102,6 @@ else
     <p>Cette page est privee !</p>
   </body>
 </body>
+<?php
+}
+?>

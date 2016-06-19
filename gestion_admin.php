@@ -10,6 +10,7 @@ include("./error.php");
   <body>
 <?php
 $admin = $_SESSION['admin'];
+$admin = TRUE;
 if ($admin == TRUE)
 {
 ?>
@@ -36,9 +37,60 @@ if ($admin == TRUE)
       <input type="submit" value="Accueil"></input>
     </form>
 <?php
+$file = "./htdocs/private/data";
+
+echo "<table name=\"product\">\n";
+echo "<tr>\n
+  <th>Nom</th>\n
+  <th>Prix</th>\n
+  <th>Category</th>\n
+  <th>Description</th>\n
+  <th>Image</th>\n
+  </tr>\n";
+if (file_exists($file))
+{
+  $fileContent = unserialize(file_get_contents($file));
+  if ($fileContent === FALSE)
+    return (FALSE);
+
+  foreach ($fileContent as $elem)
+  {
+    foreach($elem['category'] as $cat)
+      $category .= $cat . ";";
+    echo "<tr>\n
+      <td>" . $elem['name'] . "</td>\n
+      <td>" . $elem['price'] . " $</td>\n
+      <td>" . $category . "</td>\n
+      <td>" . $elem['description'] . "</td>\n
+      <td>" . $elem['img'] . "</td>\n
+      </tr>\n";
+  }
+}
+echo "</table>\n";
+
+$file2 = "./htdocs/private/passwd";
+echo "<table name=\"product\">\n";
+echo "<tr>\n
+  <th>Login</th>\n
+  <th>Admin</th>\n
+  </tr>\n";
+if (file_exists($file2))
+{
+  $fileContent = unserialize(file_get_contents($file2));
+  if ($fileContent === FALSE)
+    return (FALSE);
+  foreach ($fileContent as $elem)
+  {
+    echo "<tr>\n
+      <td>" . $elem['login'] . "</td>\n
+      <td>" . $elem['admin'] . "</td>\n
+      </tr>\n";
+  }
+}
+echo "</table>\n";
 }
 else
   echo "<p>Cette page est privee !</p>\n";
 ?>
   </body>
-</html>
+  </html>
