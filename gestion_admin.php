@@ -33,9 +33,6 @@ if ($admin == TRUE)
       <form method="link" action="gestion_log/del_account_by_name.php">
         <input type="submit" value="Supprimer un compte"></input>
       </form>
-      <form method="link" action="gestion_log/del_account_by_name.php">
-        <input type="submit" value="Supprimer un compte"></input>
-      </form>
       <form method="link" action="gestion_log/user_admin_or_not.php">
         <input type="submit" value="Donner/Supprimer les droits admin"></input>
       </form>
@@ -61,15 +58,19 @@ if (file_exists($file))
 
   foreach ($fileContent as $elem)
   {
-    foreach($elem['category'] as $cat)
-      $category .= $cat . ";";
-    echo "<tr>\n
-      <td>" . $elem['name'] . "</td>\n
-      <td>" . $elem['price'] . " $</td>\n
-      <td>" . $category . "</td>\n
-      <td>" . $elem['description'] . "</td>\n
-      <td>" . $elem['img'] . "</td>\n
-      </tr>\n";
+      foreach($elem['category'] as $cat)
+      {
+        if ($cat !== "")
+          $category .= $cat . "<br />\n";
+      }
+      echo "<tr>\n
+        <td>" . $elem['name'] . "</td>\n
+        <td>" . $elem['price'] . " $</td>\n
+        <td>" . $category . "</td>\n
+        <td>" . $elem['description'] . "</td>\n
+        <td>" . $elem['img'] . "</td>\n
+        </tr>\n";
+$category = "";
   }
 }
 echo "</table>\n";

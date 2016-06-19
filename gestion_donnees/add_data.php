@@ -1,4 +1,5 @@
 <?php
+session_start();
 function add_data(string $name, int $price, array $category, string $description, string $img)
 {
   $path = "../htdocs/private";
@@ -50,7 +51,7 @@ if ($admin == TRUE)
 {
   if ($_POST['submit'] === "Ajouter")
   {
-    if ($price === "" && $name === "")
+    if (!isset($price) || $price === "" || $name === "")
     {
       echo "Les champs Nom et Prix sont obligatoire ! <br />";
     }

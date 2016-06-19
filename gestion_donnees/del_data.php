@@ -1,4 +1,5 @@
 <?php
+session_start();
 function del_data(string $name)
 {
   $file = "../htdocs/private/data";
@@ -70,6 +71,7 @@ if ($admin == TRUE)
 <?php
 }
 else
+{
 ?>
 <body>
   <head>
@@ -79,3 +81,6 @@ else
     <p>Cette page est privee !</p>
   </body>
 </body>
+<?php
+}
+?>

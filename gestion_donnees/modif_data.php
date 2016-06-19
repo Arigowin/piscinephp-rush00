@@ -1,4 +1,5 @@
 <?php
+session_start();
 $idr = isset($_POST['region'])?$_POST['region']:null;
 
 function modif_data(string $name, string $newName = "", int $price = -1, array $category = NULL, string $description = "", string $img = "")
