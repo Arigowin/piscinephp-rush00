@@ -7,12 +7,12 @@ session_start();
   </head>
 <body>
 <?php
-  if ($_GET['submit'] === "Valider et acceder au panier")
-  {
+if ($_GET['submit'] === "Valider et acceder au panier")
+{
 ?>
   <h1>Liste des articles</h1>
 <?php
-  }
+}
 ?>
   <table name="panier" class=ref>
   <tr>
@@ -39,7 +39,7 @@ if (file_exists($file))
       $qte[$name] = $quantite;
     }
 
-  $panier = $_SESSION['panier'];
+    $panier = $_SESSION['panier'];
 
     foreach($fileContent as $elem)
     {
@@ -57,28 +57,36 @@ if (file_exists($file))
   else
     $panier = $_SESSION['panier'];
 
-  foreach ($panier as $key => $value)
+  if ($panier)
   {
-    if ($value['qte'] != 0)
+    foreach ($panier as $key => $value)
     {
-      $totale = ($value['qte'] * $value['price']);
-      echo "<tr>\n
-        <td>" . $key . "</td>\n
-        <td>" . $value['price'] . " $</td>\n
-        <td>" . $value['qte'] . " $</td>\n
-        <td>$totale $</td>\n
-        </tr>\n";
+      if ($value['qte'] != 0)
+      {
+        $totale = ($value['qte'] * $value['price']);
+        echo "<tr>\n
+          <td>" . $key . "</td>\n
+          <td>" . $value['price'] . " $</td>\n
+          <td>" . $value['qte'] . " $</td>\n
+          <td>$totale $</td>\n
+          </tr>\n";
 $totales += $totale;
+      }
     }
+    $_SESSION['panier'] = $panier;
   }
-  $_SESSION['panier'] = $panier;
 ?>
 </table>
 <?php
   echo "<p>Totale : $totales $</p>";
 }
+if ($_GET['submit'] === "Valider et acceder au panier")
+{
 ?>
   <a href="index.php"><button name="Accueil" type="submit">Accueil</button></a>
   <a href="articles.php"><button name="article" type="submit">Revenir a la liste d'articles</button></a>
+<?php
+}
+?>
 </body>
 </html>
