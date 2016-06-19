@@ -5,7 +5,12 @@
   color: #ffffff;
   font-size: 4vw;
 }
-
+h2  {
+  text-align: center;
+  font-family: arial;
+  font-size: 20;
+  margin-top: -8%;
+}
 .boxright  {
 	padding: 20px;
 	background: #ffffff;
@@ -16,16 +21,33 @@
   width: 146px;
   height: 202px;
   display: block;
-  position: absolute;
-  margin-left: 75%;
-  margin-top: 20px;
+  margin-left: 104%;
+  margin-top: -17%;
   box-shadow: 10px 12px 6px black;
-  opacity: 0.6;
   filter: alpha(opacity=60);
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+}
 
+.box_cart  {
+	padding: 20px;
+	background: #ffffff;
+
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+  width: 146px;
+  height: 202px;
+  display: block;
+  margin-left: 104%;
+  margin-top: -13%;
+  box-shadow: 10px 12px 6px black;
+  filter: alpha(opacity=60);
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
 
 }
+
 .boxleft  {
 	padding: 20px;
 	background: #ffffff;
@@ -36,9 +58,8 @@
   width: 146px;
   height: 202px;
   display: block;
-  position: absolute;
-  margin-left: 1%;
-  margin-top: -642px;
+  margin-left: -31%;
+  margin-top: 0%;
   box-shadow: 10px 12px 6px black;
   opacity: 0.6;
   filter: alpha(opacity=60);
@@ -120,6 +141,7 @@ div.transbox {
   height: 81%;
   margin-left: 18%;
   margin-top: -2%;
+  position: relative;
 }
 
 div.transbox p {

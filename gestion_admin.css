@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+
+h2  {
+  text-align: center;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.inline {
+  display: inline-block;;
+}
+
+.logins {
+  margin-left: 1087px;
+  margin-top: -665px;
+  float: right;
+}

@@ -4,6 +4,9 @@ include("./error.php");
 ?>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="gestion_admin.css" />
+    <meta charset="utf-8">
+
     <title>Gestion des articles</title>
   </head>
 
@@ -14,6 +17,7 @@ if ($admin == TRUE)
 {
 ?>
       <h1>Gestion des articles</h1>
+      <h2>Cette page est moche, parce que c'est la page admin.</h2>
       <form method="link" action="gestion_donnees/add_data.php">
         <input type="submit" value="Ajouter un article"></input>
       </form>
@@ -25,20 +29,21 @@ if ($admin == TRUE)
   }
 ?>
       <form method="link" action="gestion_donnees/modif_data.php">
-        <input type="submit" value="Modifier un article"></input>
+        <input class="inline" type="submit" value="Modifier un article"></input>
       </form>
       <form method="link" action="gestion_donnees/del_data.php">
-        <input type="submit" value="Supprimer un article"></input>
+        <input class="inline" type="submit" value="Supprimer un article"></input>
       </form>
       <form method="link" action="gestion_log/del_account_by_name.php">
-        <input type="submit" value="Supprimer un compte"></input>
+        <input class="inline" type="submit" value="Supprimer un compte"></input>
       </form>
       <form method="link" action="gestion_log/user_admin_or_not.php">
-        <input type="submit" value="Donner/Supprimer les droits admin"></input>
+        <input class="inline"type="submit" value="Donner/Supprimer les droits admin"></input>
       </form>
       <form method="link" action="index.php">
-        <input type="submit" value="Accueil"></input>
+        <input class="inline" type="submit" value="Accueil"></input>
       </form>
+
 <?php
   $file = "./htdocs/private/data";
 
@@ -76,7 +81,7 @@ $category = "";
 echo "</table>\n";
 
 $file2 = "./htdocs/private/passwd";
-echo "<table name=\"product\">\n";
+echo "<table class=\"logins\" name=\"product\">\n";
 echo "<tr>\n
   <th>Login</th>\n
   <th>Admin</th>\n
@@ -94,6 +99,7 @@ if (file_exists($file2))
       <td>" . $admin . "</td>\n
       </tr>\n";
   }
+  echo "</table>\n";
 }
 echo "</table>\n";
 }
