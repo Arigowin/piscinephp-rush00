@@ -45,17 +45,18 @@ if (file_exists($file))
   {
     foreach ($fileContent as $elem)
     {
-      foreach($elem['category'] as $cat)
+      foreach($elem['category'] as $cate)
       {
-        if ($cat !== "")
-          $category .= $cat . "<br />\n";
+        if ($cate !== "")
+          $category .= $cate . "<br />\n";
       }
+      $img = ($elem['img'] !== "")?"<img src=\"" . $elem['img'] . "\" />":"";
       echo "<tr>\n
         <td>" . $elem['name'] . "</td>\n
         <td>" . $elem['price'] . " $</td>\n
         <td>" . $category . "</td>\n
         <td>" . $elem['description'] . "</td>\n
-        <td>" . $elem['img'] . "</td>\n
+        <td>$img</td>\n
         </tr>\n";
 $category = "";
     }
@@ -64,21 +65,20 @@ $category = "";
   {
     foreach ($fileContent as $elem)
     {
-      if (array_search($cat, $elem['category']) !== FALSE)
+      if ($id = array_search($cat, $elem['category']) !== FALSE)
       {
-        print_r($elem['category']);
-        echo "<br/>\n";
-        foreach($elem['category'] as $cat)
+        foreach($elem['category'] as $cate)
         {
-          if ($cat !== "")
-            $category .= $cat . "<br />\n";
+          if ($cate !== "")
+            $category .= $cate . "<br />\n";
         }
+        $img = ($elem['img'] !== "")?"<img src=\"" . $elem['img'] . "\" />":"";
         echo "<tr>\n
           <td>" . $elem['name'] . "</td>\n
           <td>" . $elem['price'] . " $</td>\n
           <td>" . $category . "</td>\n
           <td>" . $elem['description'] . "</td>\n
-          <td>" . $elem['img'] . "</td>\n
+          <td>$img</td>\n
           </tr>\n";
 $category = "";
       }
