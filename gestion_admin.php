@@ -47,7 +47,7 @@ if ($admin == TRUE)
 <?php
   $file = "./htdocs/private/data";
 
-  echo "<table name=\"product\">\n";
+  echo "<table class=\"ref\" name=\"product\">\n";
   echo "<tr>\n
     <th>Nom</th>\n
     <th>Prix</th>\n

@@ -130,13 +130,14 @@ if ($admin == TRUE)
 </body>
 <?php
 }
-else
+else {
 ?>
-<body>
+<html>
   <head>
   <title>Ajout d'articles</title>
   </head>
   <body>
     <p>Cette page est privee !</p>
   </body>
-</body>
+</html>
+<?php } ?>

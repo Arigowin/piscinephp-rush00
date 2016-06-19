@@ -10,12 +10,25 @@ table {
   margin-left: auto;
   margin-right: auto;
 }
+td {
+  border: 1px solid black;
+}
+th {
+  border: 1px solid black;
+}
 .inline {
   display: inline-block;;
 }
 
 .logins {
-  margin-left: 1087px;
-  margin-top: -665px;
+
   float: right;
+  position: absolute;
+  top: 1;
+  right: 1;
+}
+
+.ref  {
+  border: 1px solid black;
+
 }

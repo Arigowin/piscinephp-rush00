@@ -75,7 +75,7 @@ if ($admin == TRUE)
       <br />
       Prix : <input type="text" name="price" value="" />
       <br />
-      Categrorie : <input type="text" name="category" value="" /> (categorie1;categorie2;...)
+      Categorie : <input type="text" name="category" value="" /> (categorie1;categorie2;...)
       <br />
       Description : <br />
       <textarea name="description" value="" rows="4" cols="50"></textarea>

@@ -1,5 +1,6 @@
 <?php
 include('../error.php');
+session_start();
 $private = '../htdocs/private/passwd';
 
 $admin = $_SESSION['admin'];
