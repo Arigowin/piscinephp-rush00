@@ -3,66 +3,89 @@
   font-family: impact;
   text-shadow: 10px 10px 10px #ffffff;
   color: #ffffff;
+  font-size: 4vw;
 }
 
 .boxright  {
 	padding: 20px;
-	background: #eeeeee;
+	background: #ffffff;
 
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
   width: 146px;
-  height: 150px;
+  height: 202px;
   display: block;
   position: absolute;
   margin-left: 75%;
   margin-top: 20px;
   box-shadow: 10px 12px 6px black;
-  background-color: rgb(144, 144, 144);
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+
+
+}
+.boxleft  {
+	padding: 20px;
+	background: #ffffff;
+
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+  width: 146px;
+  height: 202px;
+  display: block;
+  position: absolute;
+  margin-left: 1%;
+  margin-top: -642px;
+  box-shadow: 10px 12px 6px black;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #ffffff;
+
+
 }
 
+.link {
+  font-family: Impact;
+}
 .login  {
   text-align: center;
   margin-top: -6px;
   font-family: Arial;
-  color: #ffffff;
+  color: black;
 }
 
 .log_but  {
   position: absolute;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
   display: inline-block;
   vertical-align: middle;
-
+  margin: 5 auto;
+  width: 153px;
 }
 .btn {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  background: rgb(39, 56, 124);
+  background-color: rgb(191, 246, 124);
+
+
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 19px;
   font-family: Arial;
-  color: #ffffff;
+  color: green;
   font-size: 12px;
   padding: 5px 5px 5px 10px;
   text-decoration: none;
+  margin: 5 auto;
+  width: 153px;
 }
 
 .modif  {
   margin-left: -7px;
   background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  background-color: rgb(39, 56, 124);
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 19px;
@@ -75,4 +98,33 @@
 
 .fond {
   background-image: url('img/roger.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: scroll;
+  background-color: rgb(4, 4, 16);
+}
+
+div.background {
+  border: 2px solid black;
+
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.6;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  filter: alpha(opacity=60);
+  width: 54%;
+  height: 81%;
+  margin-left: 18%;
+  margin-top: -2%;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
 }
