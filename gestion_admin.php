@@ -81,7 +81,11 @@ $category = "";
 echo "</table>\n";
 
 $file2 = "./htdocs/private/passwd";
+<<<<<<< HEAD
+echo "<table name=\"user\">\n";
+=======
 echo "<table class=\"logins\" name=\"product\">\n";
+>>>>>>> 97632e388a6bfbb84c7851a938b9de89c8518837
 echo "<tr>\n
   <th>Login</th>\n
   <th>Admin</th>\n
