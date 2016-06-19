@@ -20,6 +20,10 @@
       error_msg(-1);
     }
     ?>
+    <div>
+      <div class="transbox">
+        <p>This is some text that is placed in the transparent box.</p>
+
         <div class="boxright">
     <?php if (isset($_SESSION['login']) && $_SESSION['login'] !== "") {?>
 
@@ -49,14 +53,17 @@
             <center><input class="btn" type="submit" value="Nouveau compte"></input></center>
 
       <?php } ?>
-  </div>
-  <div class="background">
-  <div class="transbox">
-    <p>This is some text that is placed in the transparent box.</p>
-  </div>
+        </div>
+      <div class="boxleft">
+        <a href="articles.php" class="link">Tout voir</a>
+      </div>
+      <div class="box_cart">
+        <h2>Mon panier</h2>
+      </div>
+      </div>
+
+
+
 </div>
-  <div class="boxleft">
-    <a href="articles.php" class="link">Tout voir</a>
-  </div>
   </body>
 </html>
