@@ -28,17 +28,11 @@
     <?php if (isset($_SESSION['login']) && $_SESSION['login'] !== "") {?>
 
       <p class="login"> Bonjour <?php if (isset($_SESSION['login'])) echo $_SESSION['login'];?></p>
-  <!--  <form action="gestion_log/logout.php">
-          <center><input class="btn" type="submit" value="Se déconnecter"></input></center>
-      </form>-->
+
       <a href="gestion_log/logout.php"><button class="btn" type="submit" >Se déconnecter</button></a>
-<!--      <form action="gestion_log/del_account.php">
-          <center><input class="btn" type="submit" value="Supprimer mon compte"></input></center>
-      </form>-->
+
         <a href="gestion_log/del_account.php"><button class="btn" type="submit" >Supprimer mon compte</button></a>
-  <!--    <form action="gestion_log/modif.html">
-        <center><input class="modif" type="submit" value="Modifier mon mot de passe"></input></center>
-      </form>-->
+
         <a href="gestion_log/modif.html"><button class="btn"  >Modifier mon mot de passe</button></a>
 
       <?php if ($_SESSION['admin'] == TRUE) { ?>
@@ -55,7 +49,18 @@
       <?php } ?>
         </div>
       <div class="boxleft">
-        <a href="articles.php" class="link">Tout voir</a>
+      <div class="text">
+        <a href="articles.php" class="link">Tout voir</a> </br>
+      </div>
+      <div class="text">
+          <a href="articles.php?cat=Raquettes" class="link">Raquettes</a></br>
+      </div>
+      <div class="text">
+        <a href="articles.php?cat=cordage" class="link">Cordages</a></br>
+      </div>
+      <div class="text">
+        <a href="articles.php?cat=balles" class="link">Balles</a></br>
+      </div>
       </div>
       <div class="box_cart">
         <h2>Mon panier</h2>

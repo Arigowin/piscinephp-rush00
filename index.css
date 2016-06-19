@@ -40,7 +40,7 @@ h2  {
   height: 202px;
   display: block;
   margin-left: 104%;
-  margin-top: -13%;
+  margin-top: -7%;
   box-shadow: 10px 12px 6px black;
   filter: alpha(opacity=60);
   background-color: rgba(255, 255, 255, 0.6);
@@ -56,7 +56,7 @@ h2  {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
   width: 146px;
-  height: 202px;
+  height: 162px;
   display: block;
   margin-left: -31%;
   margin-top: 0%;
@@ -69,6 +69,10 @@ h2  {
 
 .link {
   font-family: Impact;
+  padding: 10px;
+}
+.text {
+  padding: 10px;
 }
 .login  {
   text-align: center;
