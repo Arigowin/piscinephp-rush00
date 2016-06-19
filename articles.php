@@ -1,21 +1,23 @@
+<?php
+session_start();
+?>
 <html>
   <head>
     <title>Listes des articles</title>
   </head>
 <body>
-<?php
-$file = "./htdocs/private/data";
-?>
   <h1>Liste des articles</h1>
   <table name=\"product\">
   <tr>
+    <th>Image</th>
     <th>Nom</th>
     <th>Prix</th>
     <th>Category</th>
     <th>Description</th>
-    <th>Image</th>
+    <th></th>
     </tr>
 <?php
+$file = "./htdocs/private/data";
 if (file_exists($file))
 {
   $fileContent = unserialize(file_get_contents($file));
@@ -39,6 +41,7 @@ if (file_exists($file))
       echo "<button name=\"cat\" type=\"submit\" formaction=\"articles.php\" formmethod='get' value=$cat>" .$cat . "</button>\n";
   }
   echo "</form>\n";
+  echo "  <form methode='get' name='qte' action='panier.php'>";
 
   $cat = $_GET['cat'];
   if (!isset($cat) || $cat === "")
@@ -48,18 +51,25 @@ if (file_exists($file))
       foreach($elem['category'] as $cate)
       {
         if ($cate !== "")
+        {
           $category .= $cate . "<br />\n";
+        }
       }
+      $tabName[] = $elem['name'];
       $img = ($elem['img'] !== "")?"<img src=\"" . $elem['img'] . "\" />":"";
       echo "<tr>\n
+        <td>$img</td>\n
         <td>" . $elem['name'] . "</td>\n
         <td>" . $elem['price'] . " $</td>\n
         <td>" . $category . "</td>\n
         <td>" . $elem['description'] . "</td>\n
-        <td>$img</td>\n
+        <td>
+            <input type=number name='" . $elem['name'] . "' value='0' min='0' max='99'/>
+        </td>\n
         </tr>\n";
-$category = "";
+      $category = "";
     }
+    $_SESSION['listesArticles'] = $tabName;
   }
   else
   {
@@ -74,18 +84,23 @@ $category = "";
         }
         $img = ($elem['img'] !== "")?"<img src=\"" . $elem['img'] . "\" />":"";
         echo "<tr>\n
+          <td>$img</td>\n
           <td>" . $elem['name'] . "</td>\n
           <td>" . $elem['price'] . " $</td>\n
           <td>" . $category . "</td>\n
           <td>" . $elem['description'] . "</td>\n
-          <td>$img</td>\n
+          <td>
+              <input type=number name='" . $elem['name'] . "' value='0' min='0' max='99'/>
+          </td>\n
           </tr>\n";
-$category = "";
+        $category = "";
       }
     }
   }
 }
 ?>
   </table>
+  <input name="submit" type="submit" value="Valider et acceder au panier" />
+  </form>
 </body>
 </html>
