@@ -32,22 +32,25 @@ function del_data(string $name)
   return (FALSE);
 }
 
+$admin = $_SESSION['admin'];
 $name = htmlentities($_POST['name']);
 
-if ($_POST['submit'] === "Supprimer")
+if ($admin == TRUE)
 {
-  if ($name === "")
+  if ($_POST['submit'] === "Supprimer")
   {
-    echo "Le champ Nom est obligatoire !<br />";
-  }
-  else
-  {
-    if (del_data($name) === FALSE)
-      echo "Produit : non trouve !<br />";
+    if ($name === "")
+    {
+      echo "Le champ Nom est obligatoire !<br />";
+    }
     else
-      echo "Produit : $name suprime !<br />";
+    {
+      if (del_data($name) === FALSE)
+        echo "Produit : non trouve !<br />";
+      else
+        echo "Produit : $name suprime !<br />";
+    }
   }
-}
 ?>
 <body>
   <head>
@@ -59,5 +62,20 @@ if ($_POST['submit'] === "Supprimer")
       <br />
       <input type="submit" name="submit" value="Supprimer" />
     </form>
+    <form method="link" action="../gestion_admin.php">
+      <input type="submit" value="Retour a la page de gestion"></input>
+    </form>
+  </body>
+</body>
+<?php
+}
+else
+?>
+<body>
+  <head>
+  <title>Ajout d'articles</title>
+  </head>
+  <body>
+    <p>Cette page est privee !</p>
   </body>
 </body>
