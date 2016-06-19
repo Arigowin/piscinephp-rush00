@@ -18,6 +18,8 @@ session_start();
     <th></th>
     </tr>
 <?php
+$panier = $_SESSION['panier'];
+
 $file = "./htdocs/private/data";
 if (file_exists($file))
 {
@@ -65,7 +67,7 @@ if (file_exists($file))
         <td>" . $category . "</td>\n
         <td>" . $elem['description'] . "</td>\n
         <td>
-            <input type=number name='" . $elem['name'] . "' value='0' min='0' max='99'/>
+            <input type=number name='" . $elem['name'] . "' value='" . ($panier[$elem['name']]['qte'] + 0) . "' min='0' max='99'/>
         </td>\n
         </tr>\n";
       $category = "";
@@ -91,7 +93,7 @@ if (file_exists($file))
           <td>" . $category . "</td>\n
           <td>" . $elem['description'] . "</td>\n
           <td>
-              <input type=number name='" . $elem['name'] . "' value='0' min='0' max='99'/>
+              <input type=number name='" . $elem['name'] . "' value='" . ($panier[$elem['name']]['qte'] + 0) . "' min='0' max='99'/>
           </td>\n
           </tr>\n";
         $category = "";

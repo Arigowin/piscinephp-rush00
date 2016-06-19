@@ -7,7 +7,7 @@ session_start();
   </head>
 <body>
   <h1>Liste des articles</h1>
-  <table name=\"product\">
+  <table name="panier" class=ref>
   <tr>
     <th>Nom</th>
     <th>Prix unitaire</th>
@@ -27,28 +27,46 @@ if (file_exists($file))
   foreach($listesArticles as $elem)
   {
     $name = $elem;
-    $quantite = $_GET[$elem];
+    $quantite = $_GET[str_replace(' ', '_', $elem)];
     $qte[$name] = $quantite;
   }
 
-  $totale = 0;
-  foreach ($fileContent as $elem)
+  $panier = $_SESSION['panier'];
+
+  foreach($fileContent as $elem)
   {
-    if ($qte[$elem['name']] != 0)
+    foreach($qte as $key => $value)
     {
-      echo "<tr>\n
-        <td>" . $elem['name'] . "</td>\n
-        <td>" . $elem['price'] . " $</td>\n
-        <td>" . $qte[$elem['name']] . " $</td>\n
-        <td>" . $totale += ($qte[$elem['name']] * $elem['price']) . " $</td>\n
-        </tr>\n";
+      if ($key === $elem['name'])
+      {
+        $panier[$key]['qte'] = $value;
+        $panier[$key]['price'] = $elem['price'];
+        unset($qte[$key]);
+      }
     }
   }
+
+  foreach ($panier as $key => $value)
+  {
+    if ($value['qte'] != 0)
+    {
+      $totale = ($value['qte'] * $value['price']);
+      echo "<tr>\n
+        <td>nom :" . $key . "</td>\n
+        <td>pu : " . $value['price'] . " $</td>\n
+        <td>qte : " . $value['qte'] . " $</td>\n
+        <td>$totale $</td>\n
+        </tr>\n";
+        $totales += $totale;
+    }
+  }
+  $_SESSION['panier'] = $panier;
 ?>
 </table>
 <?php
-  echo "<p>Totale : $totale $</p>";
+  echo "<p>Totale : $totales $</p>";
 }
 ?>
+  <button name="Annuler" type="submit">Retourner a l'index</button>
 </body>
 </html>
