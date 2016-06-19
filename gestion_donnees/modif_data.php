@@ -124,7 +124,7 @@ if ($admin == TRUE)
     <input type="submit" name="submit" value="Modifier" />
   </form>
   <form method="link" action="../gestion_admin.php">
-    <input type="submit" value="Retour a la page de gestion des articles"></input>
+    <input type="submit" value="Retour a la page de gestion"></input>
   </form>
 </body>
 <?php

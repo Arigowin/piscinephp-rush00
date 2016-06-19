@@ -46,7 +46,6 @@ $category = htmlentities($_POST['category']);
 $description = htmlentities($_POST['description']);
 $img = htmlentities($_POST['img']);
 
-$admin = TRUE;
 if ($admin == TRUE)
 {
   if ($_POST['submit'] === "Ajouter")
@@ -85,7 +84,7 @@ if ($admin == TRUE)
       <input type="submit" name="submit" value="Ajouter" />
     </form>
     <form method="link" action="../gestion_admin.php">
-      <input type="submit" value="Retour a la page de gestion des articles"></input>
+      <input type="submit" value="Retour a la page de gestion"></input>
     </form>
   </body>
 </body>
