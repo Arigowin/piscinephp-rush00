@@ -37,7 +37,7 @@
       </form>-->
         <a href="gestion_log/modif.php"><button class="btn" type="submit" >Modifier mon mot de passe</button></a>
 
-      <?php if ($_SESSION['admin'] == FALSE) { ?>
+      <?php if ($_SESSION['admin'] == TRUE) { ?>
       <a href="gestion_admin.php"><button class="btn" type="submit" >Accéder à la page Administrateur</button></a>
 <?php }
     }
