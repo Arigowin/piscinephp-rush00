@@ -63,7 +63,17 @@
       </div>
       </div>
       <div class="box_cart">
-        <h2>Mon panier</h2>
+      <iframe name='panier' src='panier.php' width='100%' height='100%'></iframe>
+<?php
+//$panier =$_SESSION['panier'];
+//if (isset($panier) || $panier != NULL)
+//{
+//  foreach($panier as $key => $value)
+//  {
+//    echo "<p>$key " . $value['qte'] . "<br/>\n";
+//  }
+//}
+?>
       </div>
       <div classe="images">
         <img class="raquette" src="http://protennistips.net/wp-content/uploads/2015/05/Babolat-Pure-Drive-Review.jpg"/>

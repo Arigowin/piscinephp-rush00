@@ -6,7 +6,14 @@ session_start();
     <title>Listes des articles</title>
   </head>
 <body>
+<?php
+  if ($_GET['submit'] === "Valider et acceder au panier")
+  {
+?>
   <h1>Liste des articles</h1>
+<?php
+  }
+?>
   <table name="panier" class=ref>
   <tr>
     <th>Nom</th>
@@ -21,30 +28,34 @@ if (file_exists($file))
   $fileContent = unserialize(file_get_contents($file));
   if ($fileContent === FALSE)
     return (FALSE);
-
-  $listesArticles = $_SESSION['listesArticles'];
-
-  foreach($listesArticles as $elem)
+  if ($_GET['submit'] === "Valider et acceder au panier")
   {
-    $name = $elem;
-    $quantite = $_GET[str_replace(' ', '_', $elem)];
-    $qte[$name] = $quantite;
-  }
+    $listesArticles = $_SESSION['listesArticles'];
+
+    foreach($listesArticles as $elem)
+    {
+      $name = $elem;
+      $quantite = $_GET[str_replace(' ', '_', $elem)];
+      $qte[$name] = $quantite;
+    }
 
   $panier = $_SESSION['panier'];
 
-  foreach($fileContent as $elem)
-  {
-    foreach($qte as $key => $value)
+    foreach($fileContent as $elem)
     {
-      if ($key === $elem['name'])
+      foreach($qte as $key => $value)
       {
-        $panier[$key]['qte'] = $value;
-        $panier[$key]['price'] = $elem['price'];
-        unset($qte[$key]);
+        if ($key === $elem['name'])
+        {
+          $panier[$key]['qte'] = $value;
+          $panier[$key]['price'] = $elem['price'];
+          unset($qte[$key]);
+        }
       }
     }
   }
+  else
+    $panier = $_SESSION['panier'];
 
   foreach ($panier as $key => $value)
   {
@@ -57,7 +68,7 @@ if (file_exists($file))
         <td>" . $value['qte'] . " $</td>\n
         <td>$totale $</td>\n
         </tr>\n";
-        $totales += $totale;
+$totales += $totale;
     }
   }
   $_SESSION['panier'] = $panier;
@@ -67,6 +78,7 @@ if (file_exists($file))
   echo "<p>Totale : $totales $</p>";
 }
 ?>
-  <button name="Annuler" type="submit">Retourner a l'index</button>
+  <a href="index.php"><button name="Accueil" type="submit">Accueil</button></a>
+  <a href="articles.php"><button name="article" type="submit">Revenir a la liste d'articles</button></a>
 </body>
 </html>
